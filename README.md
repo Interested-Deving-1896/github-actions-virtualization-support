@@ -1,52 +1,77 @@
-# GitHub Actions Virtualization Support Test
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# github-actions-virtualization-support
 
-This project provides minimal workflows to test support for LXD and Multipass virtualization tools on GitHub Ubuntu runners.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/github-actions-virtualization-support)
 
-## LXD: Virtual Machines vs System Containers
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-This project specifically tests **LXD virtual machines** (not system containers). LXD supports both system containers and virtual machines:
+## Architecture
 
-- **System containers**: Share the host OS kernel, lighter and faster
-- **Virtual machines**: Emulate complete hardware with their own kernel, fully isolated
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-Our workflows use the `--vm` flag to create virtual machines. For more details about LXD instance types, see the [official LXD documentation on containers and VMs](https://documentation.ubuntu.com/lxd/stable-5.21/explanation/instances/).
+## Install
 
-## Not supported
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-[![Test KVM/Libvirt Provision](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-kvm.yml/badge.svg)](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-kvm.yml)
-
-## Supported
-
-[![Test LXD Provision](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-lxd.yml/badge.svg)](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-lxd.yml) [![Test LXD VM with OpenTofu](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-lxd-opentofu.yml/badge.svg)](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-lxd-opentofu.yml) [![Test Multipass Provision](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-multipass.yml/badge.svg)](https://github.com/josecelano/github-actions-virtualization-support/actions/workflows/test-multipass.yml)
-
-## Purpose
-
-- Verify if LXD virtual machines and Multipass can be used for full virtualization on GitHub-hosted Ubuntu runners.
-- Each workflow launches a VM and runs a simple command inside to confirm functionality.
-- Demonstrate that KVM/Libvirt fails on shared runners as expected.
-
-## Background
-
-- KVM/Libvirt is not supported on shared runners.
-- LXD virtual machines and Multipass may work, but official documentation is unclear about their virtualization capabilities.
-- Related issue: [actions/runner-images#12933](https://github.com/actions/runner-images/issues/12933)
-- Reference project: [torrust/torrust-tracker-deploy-rust-poc](https://github.com/torrust/torrust-tracker-deploy-rust-poc)
-
-## Workflows
-
-- `.github/workflows/test-lxd.yml`: Tests LXD VM support (may fail due to virtualization limits)
-- `.github/workflows/test-lxd-opentofu.yml`: Tests LXD VM support via OpenTofu (may fail due to nested virtualization limits)
-- `.github/workflows/test-multipass.yml`: Tests Multipass support (should work)
-- `.github/workflows/test-kvm.yml`: Tests KVM/Libvirt support (**expected to fail** - demonstrates the limitation)
+```bash
+git clone https://github.com/Interested-Deving-1896/github-actions-virtualization-support.git
+cd github-actions-virtualization-support
+```
 
 ## Usage
+
 
 - Fork or clone this repository.
 - Review workflow files for minimal LXD VM and Multipass tests.
 
-## Notes
+## Configuration
 
-- No extra tools (like Ansible) are installed.
-- Only basic VM creation and command execution are performed.
-- The KVM/Libvirt workflow is intentionally included to show it fails with "Permission denied" errors when trying to connect to the hypervisor, confirming that full KVM virtualization is not available on shared runners.
-- LXD VM support may also fail on shared runners due to nested virtualization limitations - GitHub runners are themselves VMs, and LXD VMs require KVM kernel modules that may not be available in nested environments.
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
+
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/github-actions-virtualization-support`](https://github.com/Interested-Deving-1896/github-actions-virtualization-support) and mirrored through:
+
+```
+Interested-Deving-1896/github-actions-virtualization-support  ──►  OpenOS-Project-OSP/github-actions-virtualization-support  ──►  OpenOS-Project-Ecosystem-OOC/github-actions-virtualization-support
+```
+
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
+
+## Contributors
+
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
